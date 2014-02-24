@@ -1,0 +1,52 @@
+
+.hebrew-issue-title{
+    float: right;
+    direction: rtl;
+}
+.english-issue-body, .hebrew-issue-body{
+    min-height: 80px;
+}
+.hebrew-issue-body{
+    float: right;
+    direction: rtl;
+}
+
+.hebrew-issue-body .user-box{
+    float: right;
+    margin-left: 5px;
+}
+.english-issue-body .user-box{
+    float: left;
+    margin-right: 5px;
+}
+.user-box{
+    display: inline-block;
+}
+.user-box img{
+    max-height: 80px;    
+    max-width: 80px;     
+}
+.user-box a{
+    display: block;
+}
+
+.tag-item{
+    height: 22px;
+    border-radius: 3px;
+    padding: 0px 4px 0px 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.tag-item:hover{
+    border: 1px solid #616161;
+}
+.tag-item .badge{
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.ui-match { background: yellow; }
+
+.ui-scrollfix{
+    position: fixed;
+}

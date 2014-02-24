@@ -1,0 +1,30 @@
+body {
+    padding-top: 60px;
+    font-family:Century Gothic,Arial,Helvetica,sans-serif;
+    padding-bottom: 40px;
+}
+p{
+    margin-top:20px;
+    font-size:1.2em;
+}
+
+
+form {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#code_hierarchy{
+    margin:0 auto;
+    width: 500px;
+    height: 500px;
+}
+#code_hierarchy svg{
+    border: 1px solid red;
+}
+
+#code_hierarchy_legend{
+    height:80px;
+    text-align:center;
+}

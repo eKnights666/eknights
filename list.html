@@ -1,0 +1,68 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span></span>
+                <input type="text" ng-model="search" class="form-control search-query" placeholder="Search">
+            </div>
+            <h4 class="text-center">Labels</h4>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="tag-item"
+                    ng-click="setSelectedLabels()"
+
+                    ng-repeat="lbl in labels| orderBy:'name'"
+                    style ="background-color: #{{lbl.color}};color: white;">
+                    <span class="glyphicon" ng-class="isChecked(lbl.name)"></span>
+                    <span class="badge pull-right">{{lbl.amount}}</span>
+                    {{lbl.name}}
+                </li>
+            </ul>
+        </div>
+        <p ui-scrollfix>They see me scrollin...</p>
+
+        <div class="col-md-5">
+            <div
+                ng-repeat="issue in filtered = (issues| githubTagsFilter:selectedLabels|  filter:search)| orderBy:'updated_at' track by $index">
+                <div>
+
+                    <h1 class="{{issue.title_lang}}-issue-title"><a href="{{issue.html_url}}" target="_blank">{{issue.title}}</a></h1>
+                    <div class="{{issue.body_lang}}-issue-body">
+                        <div class="user-box text-center">
+                            <img class="" style="float:left" src="{{issue.user.avatar_url}}" alt="Avatar of {{issue.user.login}}"/>
+                            <a href="{{issue.user.html_url}}">{{issue.user.login}}</a>                      
+                        </div>
+                        <!--{{issue.body|highlight:'Open'}}-->
+                        <span ng-bind-html="issue.body|highlight:search">
+                            {{issue.body|highlight:search}}
+                        </span>
+                        <!--highlight:-->
+                    </div>
+                    <span>
+                        <div ng-if="issue.comments != 0" data-ng-click="loadComments($event, issue)">
+                            There is {{issue.comments}} comments.
+                        </div>       
+                        <div ng-if="issue.comments == 0">
+                            There is no comments yet ):
+                        </div>       
+                    </span>
+                    <span class="badge pull-right"
+                          style="background-color: #{{label.color}}"
+                          ng-repeat="label in issue.labels">
+                        {{label.name}}
+                    </span>
+                    <div ng-repeat="comment in issue.comments_list">
+                        {{comment.body}}
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <hr>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

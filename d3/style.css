@@ -1,0 +1,25 @@
+
+svg {
+    font: 10px sans-serif;
+}
+
+.area {
+    /*fill: steelblue;*/
+ 
+
+    fill: url(#temperature-gradient);
+    clip-path: url(#clip);
+    /*shape-rendering: optimizeSpeed;//optimizeSpeed;//geometricPrecision; //crispEdges*/ 
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges ;//optimizeSpeed;//geometricPrecision; //crispEdges 
+}
+
+.brush .extent {
+    stroke: #fff;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
+}
